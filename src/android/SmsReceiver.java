@@ -11,7 +11,7 @@ import org.apache.cordova.PluginResult;
 
 public class SmsReceiver extends BroadcastReceiver {
     public static final String SMS_EXTRA_NAME = "pdus";
-    private CallbackContext callback_receive;
+    private CallbackContext callbackReceive;
     private boolean isReceiving = true;
 
     // This broadcast boolean is used to continue or not the message broadcast
@@ -29,11 +29,11 @@ public class SmsReceiver extends BroadcastReceiver {
 
             for (int i = 0; i < smsExtra.length; i++) {
                 SmsMessage sms = SmsMessage.createFromPdu((byte[]) smsExtra[i]);
-                if (this.isReceiving && this.callback_receive != null) {
+                if (this.isReceiving && this.callbackReceive != null) {
                     String formattedMsg = sms.getMessageBody();
                     PluginResult result = new PluginResult(PluginResult.Status.OK, formattedMsg);
                     result.setKeepCallback(true);
-                    callback_receive.sendPluginResult(result);
+                    callbackReceive.sendPluginResult(result);
                 }
             }
 
@@ -49,12 +49,12 @@ public class SmsReceiver extends BroadcastReceiver {
     }
 
     public void startReceiving(CallbackContext ctx) {
-        this.callback_receive = ctx;
+        this.callbackReceive = ctx;
         this.isReceiving = true;
     }
 
     public void stopReceiving() {
-        this.callback_receive = null;
+        this.callbackReceive = null;
         this.isReceiving = false;
     }
 }

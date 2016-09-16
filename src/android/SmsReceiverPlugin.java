@@ -18,7 +18,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
     public final String ACTION_HAS_SMS_POSSIBILITY = "hasSMSPossibility";
     public final String ACTION_RECEIVE_SMS = "startReception";
     public final String ACTION_STOP_RECEIVE_SMS = "stopReception";
-    private CallbackContext callback_receive;
+    private CallbackContext callbackReceive;
     private SmsReceiver smsReceiver = null;
     private boolean isReceiving = false;
     private int requestCode = 20160916;
@@ -59,7 +59,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
         PluginResult pluginResult = new PluginResult(
                 PluginResult.Status.NO_RESULT);
         pluginResult.setKeepCallback(false);
-        this.callback_receive.sendPluginResult(pluginResult);
+        this.callbackReceive.sendPluginResult(pluginResult);
 
         // 2. Send result for the current context
         pluginResult = new PluginResult(
@@ -75,7 +75,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
             PluginResult pluginResult = new PluginResult(
                     PluginResult.Status.NO_RESULT);
             pluginResult.setKeepCallback(false);
-            this.callback_receive.sendPluginResult(pluginResult);
+            this.callbackReceive.sendPluginResult(pluginResult);
 
             // ... before registering a new one to the sms receiver
         }
@@ -95,7 +95,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
                 PluginResult.Status.NO_RESULT);
         pluginResult.setKeepCallback(true);
         callbackContext.sendPluginResult(pluginResult);
-        this.callback_receive = callbackContext;
+        this.callbackReceive = callbackContext;
     }
 
     private void hasSmsPossibility(CallbackContext callbackContext) {
