@@ -19,13 +19,13 @@
     <!-- android -->
     <platform name="android">
         <config-file parent="/*" target="res/xml/config.xml">
-            <feature name="SmsReceiver">
+            <feature name="SmsReceiverPlugin">
                 <param name="android-package" value="name.ratson.cordova.sms_receiver.SmsReceiverPlugin" />
             </feature>
         </config-file>
 
         <config-file parent="/manifest/application" target="AndroidManifest.xml">
-            <receiver android:name="name.ratson.cordova.sms_receiver.SmsReceiverPlugin" android:exported="true">
+            <receiver android:name="name.ratson.cordova.sms_receiver.SmsReceiver" android:exported="true">
                 <intent-filter android:priority="999">
                     <action android:name="android.provider.Telephony.SMS_RECEIVED" />
                 </intent-filter>
