@@ -8,6 +8,7 @@ import android.telephony.SmsMessage;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.PluginResult;
+import org.json.JSONObject;
 
 public class SmsReceiver extends BroadcastReceiver {
     public static final String SMS_EXTRA_NAME = "pdus";
@@ -30,8 +31,14 @@ public class SmsReceiver extends BroadcastReceiver {
             for (int i = 0; i < smsExtra.length; i++) {
                 SmsMessage sms = SmsMessage.createFromPdu((byte[]) smsExtra[i]);
                 if (this.isReceiving && this.callbackReceive != null) {
-                    String formattedMsg = sms.getMessageBody();
-                    PluginResult result = new PluginResult(PluginResult.Status.OK, formattedMsg);
+                    JSONObject jsonObj = new JSONObject();
+                    try {
+                        jsonObj.put("messageBody", sms.getMessageBody());
+                        jsonObj.put("originatingAddress", sms.getOriginatingAddress());
+                    } catch (Exception e) {
+                        System.out.println("Error: " + e);
+                    }
+                    PluginResult result = new PluginResult(PluginResult.Status.OK, jsonObj);
                     result.setKeepCallback(true);
                     callbackReceive.sendPluginResult(result);
                 }

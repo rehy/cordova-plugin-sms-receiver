@@ -15,7 +15,7 @@ cordova plugin add cordova-plugin-sms-receiver --save
 Check if the SMS technology is supported by the device.
 
 ```js
-SmsReceiver.isSupported(function(supported) {
+SmsReceiver.isSupported((supported) => {
   if (supported) {
     alert("SMS supported!")
   } else {
@@ -34,9 +34,9 @@ The error callback is called if an error occurs.
 
 Example:
 ```js
-SmsReceiver.startReception(function(msg) {
-  alert(msg)
-}, function() {
+SmsReceiver.startReception(({messageBody, originatingAddress}) => {
+  alert(messageBody)
+}, () => {
   alert("Error while receiving messages")
 })
 ```
@@ -46,9 +46,9 @@ Stop the SMS receiver
 
 Example:
 ```js
-SmsReceiver.stopReception(function() {
+SmsReceiver.stopReception(() => {
   alert("Correctly stopped")
-}, function() {
+}, () => {
   alert("Error while stopping the SMS receiver")
 })
 ```
