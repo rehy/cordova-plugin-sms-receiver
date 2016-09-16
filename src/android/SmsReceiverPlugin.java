@@ -35,7 +35,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
         if (ACTION_HAS_SMS_POSSIBILITY.equals(action)) {
             hasSmsPossibility(callbackContext);
             return true;
-        } else if (ACTION_RECEIVE_SMS.equals(ation)) {
+        } else if (ACTION_RECEIVE_SMS.equals(action)) {
             receiveSms(callbackContext);
             return true;
         } else if (ACTION_STOP_RECEIVE_SMS.equals(action)) {
