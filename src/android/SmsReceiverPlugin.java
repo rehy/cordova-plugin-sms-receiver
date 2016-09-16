@@ -120,6 +120,6 @@ public class SmsReceiverPlugin extends CordovaPlugin {
         if (!hasPermissionGranted(type)) {
             ActivityCompat.requestPermissions(this.cordova.getActivity(), new String[]{type}, requestCode);
         }
-        this.callback.success();
+        this.callbackReceive.success();
     }
 }
