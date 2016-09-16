@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-sms-receiver",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Cordova SMS Receiver Plugin",
   "scripts": {
     "clean": "rimraf www",
