@@ -15,7 +15,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class SmsReceiverPlugin extends CordovaPlugin {
-    private static final String REQUEST_READ_PERMISSION = "requestReadPermission";
+    private static final String ACTION_REQUEST_PERMISSION = "requestPermission";
     public final String ACTION_HAS_SMS_POSSIBILITY = "hasSMSPossibility";
     public final String ACTION_RECEIVE_SMS = "startReception";
     public final String ACTION_STOP_RECEIVE_SMS = "stopReception";
@@ -41,7 +41,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
         } else if (ACTION_STOP_RECEIVE_SMS.equals(action)) {
             stopReceiveSms(callbackContext);
             return true;
-        } else if (REQUEST_READ_PERMISSION.equals(action)) {
+        } else if (ACTION_REQUEST_PERMISSION.equals(action)) {
             requestPermission(Manifest.permission.RECEIVE_SMS);
             return true;
         }
