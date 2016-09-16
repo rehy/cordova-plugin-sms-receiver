@@ -42,7 +42,7 @@ public class SmsReceiverPlugin extends CordovaPlugin {
             stopReceiveSms(callbackContext);
             return true;
         } else if (ACTION_REQUEST_PERMISSION.equals(action)) {
-            requestPermission(Manifest.permission.RECEIVE_SMS);
+            requestPermission(Manifest.permission.RECEIVE_SMS, callbackContext);
             return true;
         }
 
@@ -116,10 +116,10 @@ public class SmsReceiverPlugin extends CordovaPlugin {
                 ContextCompat.checkSelfPermission(this.cordova.getActivity(), type));
     }
 
-    private void requestPermission(String type) {
+    private void requestPermission(String type, CallbackContext callbackContext) {
         if (!hasPermissionGranted(type)) {
             ActivityCompat.requestPermissions(this.cordova.getActivity(), new String[]{type}, requestCode);
         }
-        this.callbackReceive.success();
+        callbackContext.success();
     }
 }
