@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    id="cordova-plugins-sms-receiver"
+    id="cordova-plugin-sms-receiver"
     version="0.1.4">
     <name>Cordova SMS Receiver Plugin</name>
     <description>Android Cordova Plugin for SMS reception</description>
