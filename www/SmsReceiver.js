@@ -1,17 +1,17 @@
-import exec from 'cordova/exec'
+var exec = require('cordova/exec')
 
-export function isSupported(successCallback, failureCallback) {
+exports.isSupported = function (successCallback, failureCallback) {
   return exec(successCallback, failureCallback, 'SmsReceiverPlugin', 'hasSMSPossibility', [])
 }
 
-export function startReception(successCallback, failureCallback) {
+exports.startReception = function (successCallback, failureCallback) {
   return exec(successCallback, failureCallback, 'SmsReceiverPlugin', 'startReception', [])
 }
 
-export function stopReception(successCallback, failureCallback) {
+exports.stopReception = function (successCallback, failureCallback) {
   return exec(successCallback, failureCallback, 'SmsReceiverPlugin', 'stopReception', [])
 }
 
-export function requestPermission(successCallback, errorCallback) {
+exports.requestPermission = function (successCallback, errorCallback) {
   return exec(successCallback, errorCallback, 'SmsReceiverPlugin', 'requestPermission', []);
 }
