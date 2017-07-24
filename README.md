@@ -4,6 +4,8 @@ SMS Receiver plugin for Cordova
 This Cordova Android plugin allows you to receive incoming SMS. You have the possibility to stop the message broadcasting and, thus, avoid the incoming message native popup.
 
 ## Install
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frishabh09%2Fcordova-plugin-sms-receiver.svg?type=shield)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frishabh09%2Fcordova-plugin-sms-receiver?ref=badge_shield)
+
 
 ```
 cordova plugin add cordova-plugin-sms-receiver --save
@@ -59,3 +61,7 @@ in the ``name.ratson.cordova.sms_receiver.SmsReceiver``), the SMS will not be br
 applications like the native SMS app. So ... be careful !
 
 A good way to manage this is to stop the SMS reception when the onPause event is fired and, when the onResume event is fired, restart the reception.
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frishabh09%2Fcordova-plugin-sms-receiver.svg?type=large)](https://app.fossa.io/projects/git%2Bhttps%3A%2F%2Fgithub.com%2Frishabh09%2Fcordova-plugin-sms-receiver?ref=badge_large)
