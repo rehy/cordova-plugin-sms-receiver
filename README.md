@@ -21,7 +21,7 @@ SmsReceiver.isSupported((supported) => {
   } else {
     alert("SMS not supported")
   }
-}), function() => {
+}, () => {
   alert("Error while checking the SMS support")
 })
 ```
